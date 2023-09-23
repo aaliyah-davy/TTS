@@ -265,9 +265,9 @@ def main(args):  # pylint: disable=redefined-outer-name
     # pylint: disable=redefined-outer-name
     meta_data_train, meta_data_eval = load_tts_samples(c.datasets, eval_split=True)
 
-    train_data_loader, train_classes, map_classid_to_classname = setup_loader(ap, is_val=False, verbose=True)
+    train_data_loader, train_classes, map_classid_to_classname = setup_loader(ap, is_val=False, verbose=False)
     if c.run_eval:
-        eval_data_loader, _, _ = setup_loader(ap, is_val=True, verbose=True)
+        eval_data_loader, _, _ = setup_loader(ap, is_val=True, verbose=False)
     else:
         eval_data_loader = None
 
