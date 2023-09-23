@@ -369,6 +369,6 @@ class GAN(BaseVocoder):
         return [DiscriminatorLoss(self.config), GeneratorLoss(self.config)]
 
     @staticmethod
-    def init_from_config(config: Coqpit, verbose=True) -> "GAN":
+    def init_from_config(config: Coqpit, verbose=False) -> "GAN":
         ap = AudioProcessor.init_from_config(config, verbose=verbose)
         return GAN(config, ap=ap)
