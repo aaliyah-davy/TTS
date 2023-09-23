@@ -166,14 +166,14 @@ def _get_formatter_by_name(name):
     return getattr(thismodule, name.lower())
 
 
-def find_unique_chars(data_samples, verbose=True):
+def find_unique_chars(data_samples, verbose=False):
     texts = "".join(item[0] for item in data_samples)
     chars = set(texts)
     lower_chars = filter(lambda c: c.islower(), chars)
     chars_force_lower = [c.lower() for c in chars]
     chars_force_lower = set(chars_force_lower)
 
-    if verbose:
+    if verbose==True:
         print(f" > Number of unique characters: {len(chars)}")
         print(f" > Unique characters: {''.join(sorted(chars))}")
         print(f" > Unique lower characters: {''.join(sorted(lower_chars))}")
