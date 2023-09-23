@@ -250,7 +250,7 @@ class Overflow(BaseTTS):
         return NLLLoss()
 
     @staticmethod
-    def init_from_config(config: "OverFlowConfig", samples: Union[List[List], List[Dict]] = None, verbose=True):
+    def init_from_config(config: "OverFlowConfig", samples: Union[List[List], List[Dict]] = None, verbose=False):
         """Initiate model from config
 
         Args:
