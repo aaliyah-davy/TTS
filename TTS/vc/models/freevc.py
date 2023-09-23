@@ -677,7 +677,7 @@ class FreeVC(BaseVC):
         ...
 
     @staticmethod
-    def init_from_config(config: "VitsConfig", samples: Union[List[List], List[Dict]] = None, verbose=True):
+    def init_from_config(config: "VitsConfig", samples: Union[List[List], List[Dict]] = None, verbose=False):
         model = FreeVC(config)
         return model
 
