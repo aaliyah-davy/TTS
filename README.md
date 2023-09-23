@@ -1,4 +1,8 @@
-
+Changes made in this fork:
+- rememoved numpy that doesn't work for python 3.11 (caused installation issues on my machine)
+- removed print statements found while running tts_to_file
+- Changed all verbose=True to verbose=False
+  
 ## 🐸Coqui.ai News
 - 📣 ⓍTTS, our production TTS model that can speak 13 languages, is released [Blog Post](https://coqui.ai/blog/tts/open_xtts), [Demo](https://huggingface.co/spaces/coqui/xtts), [Docs](https://tts.readthedocs.io/en/dev/models/xtts.html)
 - 📣 [🐶Bark](https://github.com/suno-ai/bark) is now available for inference with unconstrained voice cloning. [Docs](https://tts.readthedocs.io/en/dev/models/bark.html)
