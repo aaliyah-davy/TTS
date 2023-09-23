@@ -54,7 +54,7 @@ if __name__ == "__main__":
         return_segments=False,
         use_noise_augment=False,
         use_cache=False,
-        verbose=True,
+        verbose=False,
     )
     loader = DataLoader(
         dataset,
