@@ -43,7 +43,7 @@ class ModelManager(object):
     def __init__(self, models_file=None, output_prefix=None, progress_bar=False, verbose=False):
         super().__init__()
         self.progress_bar = progress_bar
-        self.verbose = verbose
+        self.verbose = False
         if output_prefix is None:
             self.output_prefix = get_user_data_dir("tts")
         else:
