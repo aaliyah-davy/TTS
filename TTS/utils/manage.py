@@ -40,7 +40,7 @@ class ModelManager(object):
         verbose (bool): print info. Defaults to True.
     """
 
-    def __init__(self, models_file=None, output_prefix=None, progress_bar=False, verbose=True):
+    def __init__(self, models_file=None, output_prefix=None, progress_bar=False, verbose=False):
         super().__init__()
         self.progress_bar = progress_bar
         self.verbose = verbose
@@ -88,7 +88,7 @@ class ModelManager(object):
             _add_model(model_name)
 
     def _list_models(self, model_type, model_count=0):
-        if self.verbose:
+        if self.verbose==True:
             print("\n Name format: type/language/dataset/model")
         model_list = []
         for lang in self.models_dict[model_type]:
@@ -96,7 +96,7 @@ class ModelManager(object):
                 for model in self.models_dict[model_type][lang][dataset]:
                     model_full_name = f"{model_type}--{lang}--{dataset}--{model}"
                     output_path = os.path.join(self.output_prefix, model_full_name)
-                    if self.verbose:
+                    if self.verbose==True:
                         if os.path.exists(output_path):
                             print(f" {model_count}: {model_type}/{lang}/{dataset}/{model} [already downloaded]")
                         else:
