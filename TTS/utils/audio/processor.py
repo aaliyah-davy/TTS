@@ -117,7 +117,7 @@ class AudioProcessor(object):
             Path to the computed stats file. Defaults to None.
 
         verbose (bool, optional):
-            enable/disable logging. Defaults to True.
+            enable/disable logging. Defaults to False.
 
     """
 
@@ -155,7 +155,7 @@ class AudioProcessor(object):
         do_rms_norm=False,
         db_level=None,
         stats_path=None,
-        verbose=True,
+        verbose=False,
         **_,
     ):
         # setup class attributed
@@ -226,7 +226,7 @@ class AudioProcessor(object):
             self.symmetric_norm = None
 
     @staticmethod
-    def init_from_config(config: "Coqpit", verbose=True):
+    def init_from_config(config: "Coqpit", verbose=False):
         if "audio" in config:
             return AudioProcessor(verbose=verbose, **config.audio)
         return AudioProcessor(verbose=verbose, **config)
