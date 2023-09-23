@@ -1769,7 +1769,7 @@ class Vits(BaseTTS):
             assert not self.training
 
     @staticmethod
-    def init_from_config(config: "VitsConfig", samples: Union[List[List], List[Dict]] = None, verbose=True):
+    def init_from_config(config: "VitsConfig", samples: Union[List[List], List[Dict]] = None, verbose=False):
         """Initiate model from config
 
         Args:
