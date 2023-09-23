@@ -88,19 +88,20 @@ class ModelManager(object):
             _add_model(model_name)
 
     def _list_models(self, model_type, model_count=0):
-        if self.verbose==True:
-            print("\n Name format: type/language/dataset/model")
+        # if self.verbose==True:
+        #     print("\n Name format: type/language/dataset/model") # Commented out print statement
         model_list = []
         for lang in self.models_dict[model_type]:
             for dataset in self.models_dict[model_type][lang]:
                 for model in self.models_dict[model_type][lang][dataset]:
                     model_full_name = f"{model_type}--{lang}--{dataset}--{model}"
                     output_path = os.path.join(self.output_prefix, model_full_name)
-                    if self.verbose==True:
-                        if os.path.exists(output_path):
-                            print(f" {model_count}: {model_type}/{lang}/{dataset}/{model} [already downloaded]")
-                        else:
-                            print(f" {model_count}: {model_type}/{lang}/{dataset}/{model}")
+                    # if self.verbose==True:
+                    #     if os.path.exists(output_path):
+                    #         print(f" {model_count}: {model_type}/{lang}/{dataset}/{model} [already downloaded]")
+                    #     else:
+                    #         print(f" {model_count}: {model_type}/{lang}/{dataset}/{model}")
+                    # Commented out print statement
                     model_list.append(f"{model_type}/{lang}/{dataset}/{model}")
                     model_count += 1
         return model_list
