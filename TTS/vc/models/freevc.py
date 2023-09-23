@@ -151,7 +151,7 @@ class Generator(torch.nn.Module):
         return x
 
     def remove_weight_norm(self):
-        print("Removing weight norm...")
+        # print("Removing weight norm...") # Commenting out print statement
         for l in self.ups:
             remove_weight_norm(l)
         for l in self.resblocks:
@@ -506,7 +506,7 @@ class FreeVC(BaseVC):
 
     def load_pretrained_speaker_encoder(self):
         """Load pretrained speaker encoder model as mentioned in the paper."""
-        print(" > Loading pretrained speaker encoder model ...")
+        # print(" > Loading pretrained speaker encoder model ...") # Commenting out print statement
         self.enc_spk_ex = SpeakerEncoderEx(
             "https://github.com/coqui-ai/TTS/releases/download/v0.13.0_models/speaker_encoder.pt"
         )
