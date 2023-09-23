@@ -338,9 +338,11 @@ class ModelManager(object):
         model_item, model_full_name, model = self._set_model_item(model_name)
         # set the model specific output path
         output_path = os.path.join(self.output_prefix, model_full_name)
-        if os.path.exists(output_path):
-            print(f" > {model_name} is already downloaded.")
-        else:
+        # if os.path.exists(output_path): 
+            # print(f" > {model_name} is already downloaded.")
+        # else:
+        # Commented out print statements
+        if not os.path.exists(output_path):
             os.makedirs(output_path, exist_ok=True)
             # handle TOS
             if not self.tos_agreed(model_item, output_path):
