@@ -256,7 +256,7 @@ def main(args):  # pylint: disable=redefined-outer-name
     print("\n > Model has {} parameters".format(num_params), flush=True)
     # set r
     r = 1 if c.model.lower() == "glow_tts" else model.decoder.r
-    own_loader = setup_loader(ap, r, verbose=True)
+    own_loader = setup_loader(ap, r, verbose=False)
 
     extract_spectrograms(
         own_loader,
