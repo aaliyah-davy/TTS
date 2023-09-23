@@ -1,5 +1,5 @@
 Changes made in this fork:
-- rememoved numpy that doesn't work for python 3.11 (caused installation issues on my machine)
+- removed numpy that doesn't work for python 3.11 (caused installation issues on my machine)
 - removed print statements found while running tts_to_file
 - Changed all verbose=True to verbose=False
   
