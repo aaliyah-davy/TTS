@@ -116,7 +116,7 @@ class BaseTacotron(BaseTTS):
             self.decoder.set_r(config.r)
         if eval:
             self.eval()
-            print(f" > Model's reduction rate `r` is set to: {self.decoder.r}")
+            # print(f" > Model's reduction rate `r` is set to: {self.decoder.r}") # Commented out print statement
             assert not self.training
 
     def get_criterion(self) -> nn.Module:
