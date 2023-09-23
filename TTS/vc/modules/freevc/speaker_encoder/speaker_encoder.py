@@ -12,7 +12,7 @@ from TTS.vc.modules.freevc.speaker_encoder.hparams import *
 
 
 class SpeakerEncoder(nn.Module):
-    def __init__(self, weights_fpath, device: Union[str, torch.device] = None, verbose=True):
+    def __init__(self, weights_fpath, device: Union[str, torch.device] = None, verbose=False):
         """
         :param device: either a torch device or the name of a torch device (e.g. "cpu", "cuda").
         If None, defaults to cuda if it is available on your machine, otherwise the model will
@@ -44,7 +44,7 @@ class SpeakerEncoder(nn.Module):
         self.load_state_dict(checkpoint["model_state"], strict=False)
         self.to(device)
 
-        if verbose:
+        if verbose==True:
             print("Loaded the voice encoder model on %s in %.2f seconds." % (device.type, timer() - start))
 
     def forward(self, mels: torch.FloatTensor):
