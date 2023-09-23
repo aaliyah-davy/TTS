@@ -281,7 +281,7 @@ class HifiganGenerator(torch.nn.Module):
         return self.forward(c)
 
     def remove_weight_norm(self):
-        print("Removing weight norm...")
+        # print("Removing weight norm...") # Commenting out print statement
         for l in self.ups:
             remove_weight_norm(l)
         for l in self.resblocks:
