@@ -122,7 +122,7 @@ def do_spectrogram_diffusion(
     latents,
     conditioning_latents,
     temperature=1,
-    verbose=True,
+    verbose=False,
 ):
     """
     Uses the specified diffusion model to convert discrete codes into a spectrogram.
@@ -601,7 +601,7 @@ class Tortoise(BaseTTS):
         voice_samples=None,
         conditioning_latents=None,
         k=1,
-        verbose=True,
+        verbose=False,
         use_deterministic_seed=None,
         return_deterministic_state=False,
         latent_averaging_mode=0,
@@ -713,12 +713,12 @@ class Tortoise(BaseTTS):
                 83  # This is the token for coding silence, which is fixed in place with "fix_autoregressive_output"
             )
             self.autoregressive = self.autoregressive.to(self.device)
-            if verbose:
+            if verbose==True:
                 print("Generating autoregressive samples..")
             with self.temporary_cuda(self.autoregressive) as autoregressive, torch.autocast(
                 device_type="cuda", dtype=torch.float16, enabled=half
             ):
-                for b in tqdm(range(num_batches), disable=not verbose):
+                for b in tqdm(range(num_batches), disable=verbose):
                     codes = autoregressive.inference_speech(
                         auto_conditioning,
                         text_tokens,
@@ -740,7 +740,7 @@ class Tortoise(BaseTTS):
             with self.temporary_cuda(self.clvp) as clvp, torch.autocast(
                 device_type="cuda", dtype=torch.float16, enabled=half
             ):
-                for batch in tqdm(samples, disable=not verbose):
+                for batch in tqdm(samples, disable=verbose):
                     for i in range(batch.shape[0]):
                         batch[i] = fix_autoregressive_output(batch[i], stop_mel_token)
                     clvp_res = clvp(
@@ -773,7 +773,7 @@ class Tortoise(BaseTTS):
                 )
             del auto_conditioning
 
-            if verbose:
+            if verbose==True:
                 print("Transforming autoregressive outputs into audio..")
             wav_candidates = []
             for b in range(best_results.shape[0]):
