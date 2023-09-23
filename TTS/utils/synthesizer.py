@@ -289,8 +289,8 @@ class Synthesizer(nn.Module):
 
         if text:
             sens = self.split_into_sentences(text)
-            print(" > Text splitted to sentences.")
-            print(sens)
+            # print(" > Text splitted to sentences.") # Commenting out print statement
+            # print(sens) # Commenting out print statement
 
         # handle multi-speaker
         if "voice_dir" in kwargs:
@@ -409,7 +409,7 @@ class Synthesizer(nn.Module):
                         self.vocoder_config["audio"]["sample_rate"] / self.tts_model.ap.sample_rate,
                     ]
                     if scale_factor[1] != 1:
-                        print(" > interpolating tts model output.")
+                        # print(" > interpolating tts model output.") # Commenting out print statement
                         vocoder_input = interpolate_vocoder_input(scale_factor, vocoder_input)
                     else:
                         vocoder_input = torch.tensor(vocoder_input).unsqueeze(0)  # pylint: disable=not-callable
@@ -473,7 +473,7 @@ class Synthesizer(nn.Module):
                     self.vocoder_config["audio"]["sample_rate"] / self.tts_model.ap.sample_rate,
                 ]
                 if scale_factor[1] != 1:
-                    print(" > interpolating tts model output.")
+                    # print(" > interpolating tts model output.") # Commenting out print statement
                     vocoder_input = interpolate_vocoder_input(scale_factor, vocoder_input)
                 else:
                     vocoder_input = torch.tensor(vocoder_input).unsqueeze(0)  # pylint: disable=not-callable
@@ -489,6 +489,6 @@ class Synthesizer(nn.Module):
         # compute stats
         process_time = time.time() - start_time
         audio_time = len(wavs) / self.tts_config.audio["sample_rate"]
-        print(f" > Processing time: {process_time}")
-        print(f" > Real-time factor: {process_time / audio_time}")
+        # print(f" > Processing time: {process_time}") # Commenting out print statement
+        # print(f" > Real-time factor: {process_time / audio_time}") # Commenting out print statement
         return wavs
